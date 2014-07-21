@@ -4,7 +4,7 @@ Tool to resize an image or list of images and save them back to their source.  I
 
 Usage
 -----
-    python [-W 1024] [-H 1024] [--no-metadata] main.py image.jpg image2.jpg image3.jpg output
+    python [-W 1024] [-H 1024] [--no-metadata] main.py image.jpg [image2.jpg image3.jpg *.gif] output
 
 -W signifies the maximum allowable width, this flag is optional and will default to 2048
 

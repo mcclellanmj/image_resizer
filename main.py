@@ -48,10 +48,10 @@ def expand_for_windows(files):
 
 
 if __name__ == "__main__":
-    argument_parser = argparse.ArgumentParser()
+    argument_parser = argparse.ArgumentParser(description="Tool for resizing images")
 
-    argument_parser.add_argument('files', metavar='file', nargs='+')
-    argument_parser.add_argument('destination', metavar='file', nargs=1)
+    argument_parser.add_argument('files', nargs='+', help='Files to be resized')
+    argument_parser.add_argument('destination', nargs=1, help='The location to save the resized file')
     argument_parser.add_argument('-W', '--maxwidth', type=int, default=2048, help='Maximum width')
     argument_parser.add_argument('-H', '--maxheight', type=int, default=2048, help='Maximum height')
     argument_parser.add_argument('--no-metadata', action='store_false', dest='copy_metadata')
