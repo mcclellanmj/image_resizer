@@ -71,6 +71,7 @@ if __name__ == "__main__":
     for file in files:
         image = Image.open(file)
         image.thumbnail(size, Image.ANTIALIAS)
-        exif = image.info['exif']
-        image.save(generate_output_name(file), exif=exif)
+
+        # **image.info tells it to pass all the existing image.info onto the thumbnail
+        image.save(generate_output_name(file), **image.info)
 
