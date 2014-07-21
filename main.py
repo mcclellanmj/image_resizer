@@ -71,7 +71,6 @@ if __name__ == "__main__":
         image = Image.open(file)
         image.thumbnail(size, Image.ANTIALIAS)
 
-        # **image.info tells it to pass all the existing image.info onto the thumbnail
         metadata = image.info if args.copy_metadata else {}
         image.save(generate_output_name(file), **metadata)
 
