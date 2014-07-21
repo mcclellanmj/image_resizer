@@ -1,14 +1,16 @@
 Image Resizer
 -------------
-Tool to resize an image or list of images and save them back to their source.  It will work on anything that PIL can handle.  In the case of JPEGs it will save any exif data that is on the image.
+Tool to resize an image or list of images and save them back to their source.  It will work on anything that PIL can handle.
 
 Usage
 -----
-    python -W 1024 -H 1024 main.py image.jpg image2.jpg image3.jpg output
+    python [-W 1024] [-H 1024] [--no-metadata] main.py image.jpg image2.jpg image3.jpg output
 
 -W signifies the maximum allowable width, this flag is optional and will default to 2048
 
 -H signifies the maximum allowable height, this flag is optional and will default to 2048
+
+--no-metadata will mean that none of the image metadata is copied to the newly resized image, this includes stuff such as the EXIF tags
 
 In the case that multiple files are passed in the output location must be an existing directory.  If only one file to be resized
 is passed in the output can be a file or directory.  If it is a directory the resized file will be placed in the directory, if

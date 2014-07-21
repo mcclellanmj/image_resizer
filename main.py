@@ -54,6 +54,8 @@ if __name__ == "__main__":
     argument_parser.add_argument('destination', metavar='file', nargs=1)
     argument_parser.add_argument('-W', '--maxwidth', type=int, default=2048, help='Maximum width')
     argument_parser.add_argument('-H', '--maxheight', type=int, default=2048, help='Maximum height')
+    argument_parser.add_argument('--no-metadata', action='store_false', dest='copy_metadata')
+    argument_parser.set_defaults(copy_metadata=True)
 
     args = argument_parser.parse_args()
     size = (args.maxwidth, args.maxheight)
@@ -73,5 +75,6 @@ if __name__ == "__main__":
         image.thumbnail(size, Image.ANTIALIAS)
 
         # **image.info tells it to pass all the existing image.info onto the thumbnail
-        image.save(generate_output_name(file), **image.info)
+        metadata = image.info if args.copy_metadata else {}
+        image.save(generate_output_name(file), **metadata)
 
