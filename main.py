@@ -65,10 +65,7 @@ if __name__ == "__main__":
     # stuff your OS should do for you is fun.
     files = args.files if not os.name == 'nt' else expand_for_windows(args.files)
 
-    if len(files) == 1:
-        generate_output_name = single_mode(destination)
-    else:
-        generate_output_name = multi_mode(destination)
+    generate_output_name = single_mode(destination) if len(files) == 1 else multi_mode(destination)
 
     for file in files:
         image = Image.open(file)
