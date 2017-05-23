@@ -72,5 +72,5 @@ if __name__ == "__main__":
         image.thumbnail(size, Image.ANTIALIAS)
 
         metadata = image.info if args.copy_metadata else {}
-        image.save(generate_output_name(file), **metadata)
+        image.save(generate_output_name(os.path.basename(file)), **metadata)
 
